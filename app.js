@@ -43,7 +43,9 @@ function addPhraseToDisplay () {
 	let phrase = getRandomPhraseAsArray(gamePhrases);
 	for (i = 0; i < phrase.length; i ++) {
 		
+		//create li element
 		let li = document.createElement('li');
+		//add li element
 		li.appendChild(document.createTextNode(phrase[i]));
 
 		}
