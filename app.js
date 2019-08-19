@@ -34,24 +34,31 @@ randomPhrase = gamePhrases[(Math.floor(Math.random() * gamePhrases.length))];
 newPhrase = randomPhrase.split('');
 return newPhrase
 };
-console.log(getRandomPhraseAsArray(gamePhrases));
+
 
 
 
 //function
-function addPhraseToDisplay () {
-	let phrase = getRandomPhraseAsArray(gamePhrases);
-	for (i = 0; i < phrase.length; i ++) {
+
+const phrases = getRandomPhraseAsArray(gamePhrases);
+function addPhraseToDisplay (arr) {
+	
+	for (i = 0; i < arr.length; i ++) {
 		
 		//create li element
+		let ul = document.getElementsByTagName('ul')[0];
 		let li = document.createElement('li');
+		li.setAttribute('class', 'letter');
+		//set the element content value
+		li.textContent = phrases.value;
 		//add li element
-		li.appendChild(document.createTextNode(phrase[i]));
+		ul.appendChild(li);
 
 		}
 
-};
-console.log(addPhraseToDisplay());
+}; 
+
+
 
 
 
