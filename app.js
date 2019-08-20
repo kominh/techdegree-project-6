@@ -75,16 +75,59 @@ addPhraseToDisplay(phrases);
 
 
 
-/////
-
-/*function checkLetter(playerGuess) {
+/****
+//Create a checkLetter function.
+The checkLetter function will be used inside of the event listener 
+//This function should have one parameter: the button the player has 
+//clicked when guessing a letter.
+//The checkLetter function should get all of the
+//elements with a class of “letter” 
+//(remember that we added the letter class to all of the letters and
+// none of the spaces when we made the game display). 
+***/
+function checkLetter(playerGuess) {
 	
 	let liList = document.getElementsByClassName('letter');
 	let noMatch = null;
-	
+
+
+	//The function should loop over the letters and check if they match the 
+    //letter in the button the player has chosen.
 	for (i = 0; i < liList.length; i ++) {
+
+			//If there’s a match, the function should add the “show” class to the list item
+			//containing that letter, store the matching letter inside of a variable,
+			//and return that letter.
 			if (liList.innerHTML.toUpperCase() == playerGuess.toUpperCase()) {
+					liList.classList.add('show');
+
 				
 			}
+			 else {//If a match wasn’t found, the function should return null.	
+			 		return noMatch;
+			 	
+			 }	
+
 };
-*/
+console.log(checkLetter(playerGuess));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
