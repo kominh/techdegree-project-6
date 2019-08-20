@@ -49,16 +49,10 @@ function addPhraseToDisplay (arr) {
 		let ul = document.getElementsByTagName('ul')[0];
 		let li = document.createElement('li');
 		
-		//set the li attributes
-		li.setAttribute('class', 'letter');
-		
-		//set the element content value
-		li.textContent = ('');
-		
 		//add li element
 		ul.appendChild(li);
 		
-		//phrase is not an empty space
+		//if phrase is not an empty space
 		if (phrases[i] !== ' ') {
 			
 			//apply the class 'letter' 
@@ -67,7 +61,7 @@ function addPhraseToDisplay (arr) {
 			
 			//else apply the class name... 'class'
 			else {
-				li.className = 'class';
+				li.className = 'space';
 			}
 			
 		}
@@ -78,3 +72,19 @@ function addPhraseToDisplay (arr) {
 addPhraseToDisplay(phrases);
 
 
+
+
+
+/////
+
+/*function checkLetter(playerGuess) {
+	
+	let liList = document.getElementsByClassName('letter');
+	let noMatch = null;
+	
+	for (i = 0; i < liList.length; i ++) {
+			if (liList.innerHTML.toUpperCase() == playerGuess.toUpperCase()) {
+				
+			}
+};
+*/
