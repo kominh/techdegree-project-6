@@ -48,17 +48,33 @@ function addPhraseToDisplay (arr) {
 		//create li element
 		let ul = document.getElementsByTagName('ul')[0];
 		let li = document.createElement('li');
+		
+		//set the li attributes
 		li.setAttribute('class', 'letter');
+		
 		//set the element content value
-		li.textContent = phrases.value;
+		li.textContent = ('');
+		
 		//add li element
 		ul.appendChild(li);
-
+		
+		//phrase is not an empty space
+		if (phrases[i] !== ' ') {
+			
+			//apply the class 'letter' 
+			li.className = 'letter';
+			} 
+			
+			//else apply the class name... 'class'
+			else {
+				li.className = 'class';
+			}
+			
 		}
+
 
 }; 
 
-
-
+addPhraseToDisplay(phrases);
 
 
