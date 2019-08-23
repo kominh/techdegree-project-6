@@ -92,7 +92,7 @@ The checkLetter function will be used inside of the event listener
 function checkLetter(button) {
 	
 		
-		const liList = document.querySelectorAll('letter');
+		const liList = document.querySelectorAll('.letter');
 		let match = null;
 	//The function should loop over the letters and check if they match the 
     //letter in the button the player has chosen.
@@ -103,13 +103,14 @@ function checkLetter(button) {
 			//and return that letter.
 			if (liList[i].textContent == button) {
 					liList[i].className = 'show';
-					
+					match = button;
 									
 			}
 
 			 //else {//If a match wasn’t found, the function should return null.	
-			return match;		// }	
+					// }	
 		} 
+		return match;
 };
 
 
@@ -122,24 +123,19 @@ function checkLetter(button) {
 			
 			if (event.target.tagName == 'BUTTON') {
 				let playerGuess = event.target.innerText;
+
+					if (button[i] == event.target){
+					button[i].className = 'chosen';
+					button[i].setAttribute("disabled", true);
+					
+					const letterFound = checkLetter(button)[i].textContent;
+					}		
 				
 						
 				//console.log(playerGuess);
 					}
 
-				if (button[i] == event.target){
-					button[i].className = 'chosen';
-					button[i].setAttribute("disabled", true);
-					checkLetter(button);
-					const letterFound = checkLetter(button);
-					}		
-			
-
-			}	
-
-
-			
-			
+				}	
 		});
 
 	
