@@ -57,6 +57,8 @@ function addPhraseToDisplay (arr) {
 			
 			//apply the class 'letter' 
 			li.className = 'letter';
+			//add the text/letter of phrases to li
+			li.textContent = phrases[i]; 
 			} 
 			
 			//else apply the class name... 'class'
@@ -68,7 +70,6 @@ function addPhraseToDisplay (arr) {
 
 
 }; 
-
 addPhraseToDisplay(phrases);
 
 
@@ -85,32 +86,30 @@ The checkLetter function will be used inside of the event listener
 //(remember that we added the letter class to all of the letters and
 // none of the spaces when we made the game display). 
 ***/
+
+
+
 function checkLetter(button) {
 	
-	let ul = document.getElementsByTagName('ul')[0];
-	let liList = document.querySelectorAll('.letter');
-	let noMatch = null;
-
+		
+		const liList = document.querySelectorAll('letter');
+		let match = null;
 	//The function should loop over the letters and check if they match the 
     //letter in the button the player has chosen.
-	for (i = 0; i < liList.length; i += 1) {
+	for (let i = 0; i < liList.length; i += 1) {
 
 			//If there’s a match, the function should add the “show” class to the list item
 			//containing that letter, store the matching letter inside of a variable,
 			//and return that letter.
 			if (liList[i].textContent == button) {
 					liList[i].className = 'show';
-					let match = liList;
 					
-					
-		
+									
 			}
 
-			 else {//If a match wasn’t found, the function should return null.	
-			 		
-			 	
-			 }	
-		}
+			 //else {//If a match wasn’t found, the function should return null.	
+			return match;		// }	
+		} 
 };
 
 
@@ -125,7 +124,7 @@ function checkLetter(button) {
 				let playerGuess = event.target.innerText;
 				
 						
-				console.log(playerGuess);
+				//console.log(playerGuess);
 					}
 
 				if (button[i] == event.target){
