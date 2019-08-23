@@ -109,8 +109,8 @@ function checkLetter(button) {
 
 			 //else {//If a match wasn’t found, the function should return null.	
 					// }	
-		} 
-		return match;
+		} return match;
+		
 };
 
 
@@ -121,17 +121,17 @@ function checkLetter(button) {
 
 		for (let i = 0; i < button.length; i += 1){
 			
+			
 			if (event.target.tagName == 'BUTTON') {
 				let playerGuess = event.target.innerText;
 
 					if (button[i] == event.target){
 					button[i].className = 'chosen';
 					button[i].setAttribute("disabled", true);
-					
-					const letterFound = checkLetter(button)[i].textContent;
+					const clickButton = button[i].textContent;
 					}		
 				
-						
+					console.log(clickButton)	
 				//console.log(playerGuess);
 					}
 
