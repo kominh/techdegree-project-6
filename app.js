@@ -85,11 +85,10 @@ The checkLetter function will be used inside of the event listener
 //(remember that we added the letter class to all of the letters and
 // none of the spaces when we made the game display). 
 ***/
-function checkLetter(playerGuess) {
+function checkLetter(button) {
 	
 	let liList = document.getElementsByClassName('letter');
 	let noMatch = null;
-
 
 	//The function should loop over the letters and check if they match the 
     //letter in the button the player has chosen.
@@ -98,36 +97,79 @@ function checkLetter(playerGuess) {
 			//If there’s a match, the function should add the “show” class to the list item
 			//containing that letter, store the matching letter inside of a variable,
 			//and return that letter.
-			if (liList.innerHTML.toUpperCase() == playerGuess.toUpperCase()) {
-					liList.classList.add('show');
-
-				
+			if (liList[i].textContent == button) {
+					liList[i] = liList[i].classList.add('show');
+					let match = liList
+					return match;
+		
 			}
+
 			 else {//If a match wasn’t found, the function should return null.	
 			 		return noMatch;
 			 	
 			 }	
-
+		}
 };
-console.log(checkLetter(playerGuess));
+
+
+
+
+////////////
+/**
+Add an event listener to the keyboard.
+
+
+
+Use event delegation to listen only to button events from the keyboard. 
+
+When a player chooses a letter, add the “chosen” class to that button so
+ the same letter can’t be chosen twice. Note that button elements have an
+  attribute you can set called “disabled” that when set to true will not 
+  respond to user clicks. See the MDN documentation for more details.
+
+Pass the button to the checkLetter function, and store the letter returned 
+inside of a variable called letterFound. At this point, you can open the 
+index.html file, click any of the letters on the keyboard, and start to see 
+the letters appear in the phrase.
+
+**/
+
+
+
+
+//listen for user actions or events
+//example
+
+
+
+	
+	qwerty.addEventListener('click', (event) => {
+
+		//	const button = document.querySelector('qwerty');
+			
+			if (event.target.tagName == 'BUTTON') {
+				let playerGuess = 
+
+			//	event.target.textContent.toUpperCase = event.target.textContent.toUpperCase();
+
+			}
+		});
+
+	/*	listItems[i].addEventListener('mouseoutr', () => {
+				listItems[i].textContent = listItems[i].textContent.lowerCase();
+		});*/
 
 
 
 
 
+/////////////////////////////for (let i =0; i < listItems.length; i += 1) {}
 
+/*const playerGuess = document.querySelector('#qwerty');
 
+playerGuess.addEventListener('click', () => {
 
-
-
-
-
-
-
-
-
-
-
+});*/
 
 
 
