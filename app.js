@@ -99,7 +99,7 @@ function checkLetter(button) {
 			//and return that letter.
 			if (liList[i].textContent == button) {
 					liList[i] = liList[i].classList.add('show');
-					let match = liList
+					let match = liList;
 					return match;
 		
 			}
@@ -142,18 +142,26 @@ the letters appear in the phrase.
 
 
 
-	
+	const button = document.getElementsByTagName('button')[i];	
 	qwerty.addEventListener('click', (event) => {
 
-		//	const button = document.querySelector('qwerty');
+		
+
+		for (let i = 0; i < button.length; i += 1){	
 			
 			if (event.target.tagName == 'BUTTON') {
-				let playerGuess = 
-
+				let playerGuess = event.target.innerText;
+				/*button[i].className = 'chosen';*/
+				 button[i].className = 'chosen';
+		
 			//	event.target.textContent.toUpperCase = event.target.textContent.toUpperCase();
+				console.log(playerGuess);
+				}
 
 			}
+			
 		});
+	
 
 	/*	listItems[i].addEventListener('mouseoutr', () => {
 				listItems[i].textContent = listItems[i].textContent.lowerCase();
