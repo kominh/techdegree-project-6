@@ -129,9 +129,10 @@ function checkLetter(button) {
 					button[i].className = 'chosen';
 					button[i].setAttribute("disabled", true);
 					const clickButton = button[i].textContent;
+					console.log(clickButton)
 					}		
 				
-					console.log(clickButton)	
+						
 				//console.log(playerGuess);
 					}
 
