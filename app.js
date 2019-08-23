@@ -87,33 +87,63 @@ The checkLetter function will be used inside of the event listener
 ***/
 function checkLetter(button) {
 	
-	let liList = document.getElementsByClassName('letter');
+	let ul = document.getElementsByTagName('ul')[0];
+	let liList = document.querySelectorAll('.letter');
 	let noMatch = null;
 
 	//The function should loop over the letters and check if they match the 
     //letter in the button the player has chosen.
-	for (i = 0; i < liList.length; i ++) {
+	for (i = 0; i < liList.length; i += 1) {
 
 			//If there’s a match, the function should add the “show” class to the list item
 			//containing that letter, store the matching letter inside of a variable,
 			//and return that letter.
 			if (liList[i].textContent == button) {
-					liList[i] = liList[i].classList.add('show');
+					liList[i].className = 'show';
 					let match = liList;
-					return match;
+					
+					
 		
 			}
 
 			 else {//If a match wasn’t found, the function should return null.	
-			 		return noMatch;
+			 		
 			 	
 			 }	
 		}
 };
 
 
+	const button = document.getElementsByTagName('button');
+	qwerty.addEventListener('click', (event) => {
+
+		
+
+		for (let i = 0; i < button.length; i += 1){
+			
+			if (event.target.tagName == 'BUTTON') {
+				let playerGuess = event.target.innerText;
+				
+						
+				console.log(playerGuess);
+					}
+
+				if (button[i] == event.target){
+					button[i].className = 'chosen';
+					button[i].setAttribute("disabled", true);
+					checkLetter(button);
+					const letterFound = checkLetter(button);
+					}		
+			
+
+			}	
 
 
+			
+			
+		});
+
+	
 ////////////
 /**
 Add an event listener to the keyboard.
@@ -142,42 +172,8 @@ the letters appear in the phrase.
 
 
 
-	const button = document.getElementsByTagName('button')[i];	
-	qwerty.addEventListener('click', (event) => {
-
-		
-
-		for (let i = 0; i < button.length; i += 1){	
-			
-			if (event.target.tagName == 'BUTTON') {
-				let playerGuess = event.target.innerText;
-				/*button[i].className = 'chosen';*/
-				 button[i].className = 'chosen';
-		
-			//	event.target.textContent.toUpperCase = event.target.textContent.toUpperCase();
-				console.log(playerGuess);
-				}
-
-			}
-			
-		});
-	
-
-	/*	listItems[i].addEventListener('mouseoutr', () => {
-				listItems[i].textContent = listItems[i].textContent.lowerCase();
-		});*/
 
 
-
-
-
-/////////////////////////////for (let i =0; i < listItems.length; i += 1) {}
-
-/*const playerGuess = document.querySelector('#qwerty');
-
-playerGuess.addEventListener('click', () => {
-
-});*/
 
 
 
