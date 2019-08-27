@@ -102,7 +102,7 @@ function checkLetter(button) {
 		for (let i = 0; i < liList.length; i += 1) {
 		
 			if (liList[i].textContent.toUpperCase() == button.toUpperCase()) {
-				liList[i].className = ('.show', '.letter');
+				liList[i].classList.add('show');
 				match = button;
 			}
 		}
@@ -138,11 +138,12 @@ qwerty.addEventListener('click', (event) => {
 		if (event.target.tagName == 'BUTTON') {
 		
 			if (button[i] == event.target){
-				button[i].className = 'chosen';
-				button[i].setAttribute("disabled", true);
 				
-				const clickButton = button[i].textContent;
-				checkLetter(clickButton);
+					button[i].className = 'chosen';
+					button[i].setAttribute("disabled", true);
+				
+					const clickButton = button[i].textContent;
+					checkLetter(clickButton);
 					}		
 				}//console.log(playerGuess);
 			}	
