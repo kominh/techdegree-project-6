@@ -2,7 +2,7 @@
 //variables
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
-const missed = '';
+let missed = '';
 const overLay = document.getElementById('overlay');
 
 //arrays
@@ -134,7 +134,8 @@ const button = document.getElementsByTagName('button');
 qwerty.addEventListener('click', (event) => {
 
 	for (let i = 0; i < button.length; i += 1){
-			
+		const clickButton = button[i].textContent;
+
 		if (event.target.tagName == 'BUTTON') {
 		
 			if (button[i] == event.target){
@@ -142,25 +143,22 @@ qwerty.addEventListener('click', (event) => {
 					button[i].className = 'chosen';
 					button[i].setAttribute("disabled", true);
 				
-					const clickButton = button[i].textContent;
+					
 					checkLetter(clickButton);
-					}	
 
 					if (checkLetter(clickButton) === null)	{ 
 
 						missed += 1;
-
 						let li = document.querySelectorAll("img");
+						
            				if(li.length>0){
               			  //removing child/img 
                			  // removeChild 
-                			li.removeChild(li.childNodes[0]);	
+                			li.removeChild(li[0]);	
                 		}		
-					}			//console.log(playerGuess);
-
-
+					  }			//console.log(playerGuess);
+					}	
 				}	
-				
 			}	
 		});
 
