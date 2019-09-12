@@ -144,15 +144,45 @@ qwerty.addEventListener('click', (event) => {
 				
 					const clickButton = button[i].textContent;
 					checkLetter(clickButton);
-					}		
-				}//console.log(playerGuess);
+					}	
+
+					if (checkLetter(clickButton) === null)	{ 
+
+						missed += 1;
+
+						let li = document.querySelectorAll("img");
+           				if(li.length>0){
+              			  //removing child/img 
+               			  // removeChild 
+                			li.removeChild(li.childNodes[0]);	
+                		}		
+					}			//console.log(playerGuess);
+
+
+				}	
+				
 			}	
 		});
 
 
 	
+/*****
+Count the missed guesses in the game.
 
+If the checkLetter function returns a null value, the player has 
+guessed the wrong letter. 
 
+In the keyboard event listener, after checkLetter is called, 
+write a statement to check the value of the letterFound(clickButton) variable. 
+
+If the value is null, 
+remove one of the tries from the scoreboard. 
+
+If you haven't created it yet, make sure
+you have a missed variable to store the state of the scoreboard (initialized to 0).
+
+ When you remove a try from the scoreboard, make sure to increase the missed count by 1.
+ *****/
 
 
 
