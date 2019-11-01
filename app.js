@@ -2,7 +2,7 @@
 //variables
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
-let missed = '';
+let missed = 0;
 const overLay = document.getElementById('overlay');
 
 //arrays
@@ -110,6 +110,35 @@ function checkLetter(button) {
 };
 
 
+
+
+/**
+Create a checkWin function.
+Each time the player guesses a letter, this function will check whether the game 
+has been won or lost. At the very end of the keyboard event listener, you’ll run 
+this function to check if the number of letters with class “show” is equal to the 
+number of letters with class “letters”. If they’re equal, show the overlay screen 
+with the “win” class and appropriate text. Otherwise, if the number of misses is 
+equal to or greater than 5, show the overlay screen with the “lose” class and 
+appropriate text.
+**/
+
+function checkWin() {
+	if(liList[i].class('show') === listList[i].class('letter')){
+
+		overLay.style.display = 'win';
+	}
+	else if (missed > 5){
+
+		overLay.style.display = 'lose';
+	}
+
+};
+
+
+
+
+
 /**
 Add an event listener to the keyboard.
 
@@ -133,33 +162,33 @@ the letters appear in the phrase.
 const button = document.getElementsByTagName('button');
 qwerty.addEventListener('click', (event) => {
 
-	for (let i = 0; i < button.length; i += 1){
-		const clickButton = button[i].textContent;
+	
+		const clickButton = event.target;
 
-		if (event.target.tagName == 'BUTTON') {
+			if (clickButton.tagName == 'BUTTON') {
 		
-			if (button[i] == event.target){
-				
-					button[i].className = 'chosen';
-					button[i].setAttribute("disabled", true);
-				
+							
+					clickButton.className = 'chosen';
+					clickButton.setAttribute("disabled", true);
+									
 					
-					checkLetter(clickButton);
-
-					if (checkLetter(clickButton) === null)	{ 
+					if (checkLetter(clickButton.textContent) === null)	{ 
 
 						missed += 1;
+
 						let li = document.querySelectorAll("img");
 						
-           				if(li.length>0){
+           				if(li.length > 0){
               			  //removing child/img 
                			  // removeChild 
-                			li.removeChild(li[0]);	
+                			li[li.length - missed].src = 'images/lostHeart.png';	
                 		}		
 					  }			//console.log(playerGuess);
-					}	
+					
+					  checkWin()
+					
 				}	
-			}	
+			
 		});
 
 
