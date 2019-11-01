@@ -111,7 +111,6 @@ function checkLetter(button) {
 
 
 
-
 /**
 Create a checkWin function.
 Each time the player guesses a letter, this function will check whether the game 
@@ -124,13 +123,17 @@ appropriate text.
 **/
 
 function checkWin() {
-	if(liList[i].class('show') === listList[i].class('letter')){
 
-		overLay.style.display = 'win';
+	const rightGuess = document.querySelectorAll('.show');
+	const rightAnswer = document.querySelectorAll('.letter')
+
+	if(rightGuess === rightAnswer){
+
+		overLay.style.display.class('.win');
 	}
 	else if (missed > 5){
 
-		overLay.style.display = 'lose';
+		overLay.style.display.class('.lose');
 	}
 
 };
