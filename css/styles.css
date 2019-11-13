@@ -93,6 +93,8 @@ button {
 }
 
 .show {
+  transition-duration: .5s;
+  transform: rotateY(360deg);
   color: #000;
   background-color: #76CE82;
 }

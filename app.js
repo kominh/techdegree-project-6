@@ -4,7 +4,8 @@ const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 let missed = 0;
 const overLay = document.getElementById('overlay');
-
+const startGameButton = document.querySelector('.btn__reset')
+const triesList = document.getElementsByClassName('tries');
 //arrays
 const gamePhrases = ['Just do it', 
 					'All or nothing', 
@@ -17,9 +18,15 @@ const gamePhrases = ['Just do it',
 
 
 
-overlay.addEventListener('click', () => {
+startGameButton.addEventListener('click', () => {
 
-	overLay.style.display = 'none';
+	if (startGameButton.textContent === 'Start Game'){
+		overLay.style.display = 'none';
+		}
+		else if (startGameButton.textContent === 'Reset Game') {
+			window.location.reload();
+
+		}
 	});
 
 
@@ -123,21 +130,31 @@ appropriate text.
 **/
 
 function checkWin() {
-
+/**if the number of letters with class “show” is equal to the 
+number of letters with class “letters”
+**/
 	const rightGuess = document.querySelectorAll('.show');
 	const rightAnswer = document.querySelectorAll('.letter')
 
-	if(rightGuess === rightAnswer){
+	if(rightGuess.length === rightAnswer.length){
 
-		overLay.style.display.class('.win');
+		overLay.classList.replace('start', 'win');
+		overLay.style.display = 'flex';
+		overlay.firstElementChild.textContent='You Win!';
+		startGameButton.textContent='Reset Game';
 	}
-	else if (missed > 5){
+	else if (missed >= 5){
 
-		overLay.style.display.class('.lose');
+		overLay.classList.replace('start', 'lose');
+		overLay.style.display = 'flex';
+		overlay.firstElementChild.textContent='You Lose!';
+		startGameButton.textContent='Reset Game';
+    	reset()
 	}
+	
+	
 
 };
-
 
 
 
@@ -185,11 +202,13 @@ qwerty.addEventListener('click', (event) => {
               			  //removing child/img 
                			  // removeChild 
                 			li[li.length - missed].src = 'images/lostHeart.png';	
-                		}		
+                		}	
+
+
 					  }			//console.log(playerGuess);
 					
-					  checkWin()
-					
+					  
+					checkWin()
 				}	
 			
 		});
