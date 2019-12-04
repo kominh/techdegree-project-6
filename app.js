@@ -142,6 +142,7 @@ number of letters with class “letters”
 		overLay.style.display = 'flex';
 		overlay.firstElementChild.textContent='You Win!';
 		startGameButton.textContent='Reset Game';
+		rightAnswer.classList.replace('letter', ' ');
 	}
 	else if (missed >= 5){
 
