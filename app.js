@@ -135,14 +135,23 @@ number of letters with class “letters”
 **/
 	const rightGuess = document.querySelectorAll('.show');
 	const rightAnswer = document.querySelectorAll('.letter')
+	const button = document.getElementById('qwerty')
+	const phrase = document.getElementById('phrase')
+	const ul = document.getElementsByTagName('ul');
+	const li = document.getElementsByTagName('li');
+
 
 	if(rightGuess.length === rightAnswer.length){
+
 
 		overLay.classList.replace('start', 'win');
 		overLay.style.display = 'flex';
 		overlay.firstElementChild.textContent='You Win!';
 		startGameButton.textContent='Reset Game';
-		rightAnswer.classList.replace('letter', ' ');
+		
+		ul.removeChild.li;
+
+
 	}
 	else if (missed >= 5){
 
@@ -150,9 +159,10 @@ number of letters with class “letters”
 		overLay.style.display = 'flex';
 		overlay.firstElementChild.textContent='You Lose!';
 		startGameButton.textContent='Reset Game';
-    	reset()
+    	
 	}
 	
+
 	
 
 };
