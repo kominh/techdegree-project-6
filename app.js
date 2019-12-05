@@ -6,6 +6,8 @@ let missed = 0;
 const overLay = document.getElementById('overlay');
 const startGameButton = document.querySelector('.btn__reset')
 const triesList = document.getElementsByClassName('tries');
+
+
 //arrays
 const gamePhrases = ['Just do it', 
 					'All or nothing', 
@@ -137,20 +139,23 @@ number of letters with class “letters”
 	const rightAnswer = document.querySelectorAll('.letter')
 	const button = document.getElementById('qwerty')
 	const phrase = document.getElementById('phrase')
-	const ul = document.getElementsByTagName('ul');
-	const li = document.getElementsByTagName('li');
+
+	const ul = document.getElementsByTagName('ul')[0];
+	const heading = document.getElementsByTagName('h2')
 
 
 	if(rightGuess.length === rightAnswer.length){
 
-
+		
 		overLay.classList.replace('start', 'win');
 		overLay.style.display = 'flex';
 		overlay.firstElementChild.textContent='You Win!';
 		startGameButton.textContent='Reset Game';
 		
-		ul.removeChild.li;
+		
+		ul.innerHTML = ' ';
 
+		
 
 	}
 	else if (missed >= 5){
@@ -159,6 +164,8 @@ number of letters with class “letters”
 		overLay.style.display = 'flex';
 		overlay.firstElementChild.textContent='You Lose!';
 		startGameButton.textContent='Reset Game';
+		
+		ul.innerHTML = ' ';
     	
 	}
 	
