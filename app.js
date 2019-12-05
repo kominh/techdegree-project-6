@@ -25,7 +25,7 @@ startGameButton.addEventListener('click', () => {
 	if (startGameButton.textContent === 'Start Game'){
 		overLay.style.display = 'none';
 		}
-		else if (startGameButton.textContent === 'Reset Game') {
+		else if (startGameButton.textContent === 'Play Again') {
 			window.location.reload();
 
 		}
@@ -149,8 +149,8 @@ number of letters with class “letters”
 		
 		overLay.classList.replace('start', 'win');
 		overLay.style.display = 'flex';
-		overlay.firstElementChild.textContent='You Win!';
-		startGameButton.textContent='Reset Game';
+		overlay.firstElementChild.textContent='Hurray! You Win!';
+		startGameButton.textContent='Play Again';
 		
 		
 		ul.innerHTML = ' ';
@@ -162,8 +162,8 @@ number of letters with class “letters”
 
 		overLay.classList.replace('start', 'lose');
 		overLay.style.display = 'flex';
-		overlay.firstElementChild.textContent='You Lose!';
-		startGameButton.textContent='Reset Game';
+		overlay.firstElementChild.textContent = 'Sorry, You Lose!';
+		startGameButton.textContent = 'Play Again';
 		
 		ul.innerHTML = ' ';
     	
