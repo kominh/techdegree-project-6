@@ -5,7 +5,7 @@ const phrase = document.getElementById('phrase');
 let missed = 0;
 const overLay = document.getElementById('overlay');
 const startGameButton = document.querySelector('.btn__reset')
-const triesList = document.getElementsByClassName('tries');
+
 
 
 //arrays
@@ -21,14 +21,46 @@ const gamePhrases = ['Just do it',
 
 
 startGameButton.addEventListener('click', () => {
+let button = document.getElementsByTagName('button');
+
 
 	if (startGameButton.textContent === 'Start Game'){
 		overLay.style.display = 'none';
+		
 		}
-		else if (startGameButton.textContent === 'Play Again') {
-			window.location.reload();
 
-		}
+		else if (startGameButton.textContent === 'Play Again') {
+			
+			overLay.style.display = 'none';
+		//	window.location.reload();
+			let button = document.querySelectorAll('BUTTON');
+
+			for (i = 0; i < button.length; i ++){
+
+					button[i].classList.remove('chosen');
+					button[i].removeAttribute('disabled');
+
+					
+				
+			}
+
+
+			let triesList = document.getElementsByClassName('tries');
+
+			for(let i = 0; i < triesList.length; i++) {
+
+    			triesList[i].firstChild.src = 'images/liveHeart.png';
+    			missed = 0;
+  };
+
+
+
+									
+				addPhraseToDisplay(phrases);		
+			
+			}
+			
+
 	});
 
 
@@ -155,7 +187,7 @@ number of letters with class “letters”
 		
 		ul.innerHTML = ' ';
 
-		
+		reset();
 
 	}
 	else if (missed >= 5){
@@ -250,7 +282,6 @@ you have a missed variable to store the state of the scoreboard (initialized to 
 
  When you remove a try from the scoreboard, make sure to increase the missed count by 1.
  *****/
-
 
 
 
