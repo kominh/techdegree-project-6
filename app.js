@@ -8,6 +8,7 @@ const startGameButton = document.querySelector('.btn__reset')
 
 
 
+
 //arrays
 const gamePhrases = ['Just do it', 
 					'All or nothing', 
@@ -27,42 +28,23 @@ let button = document.getElementsByTagName('button');
 	if (startGameButton.textContent === 'Start Game'){
 		overLay.style.display = 'none';
 		
+		
 		}
 
 		else if (startGameButton.textContent === 'Play Again') {
 			
 			overLay.style.display = 'none';
-		//	window.location.reload();
-			let button = document.querySelectorAll('BUTTON');
 
-			for (i = 0; i < button.length; i ++){
-
-					button[i].classList.remove('chosen');
-					button[i].removeAttribute('disabled');
-
-					
-				
-			}
-
-
-			let triesList = document.getElementsByClassName('tries');
-
-			for(let i = 0; i < triesList.length; i++) {
-
-    			triesList[i].firstChild.src = 'images/liveHeart.png';
-    			missed = 0;
-  };
-
-
-
-									
-				addPhraseToDisplay(phrases);		
+			reset();
+			 }		
+	
 			
-			}
-			
+});
+	
+		
 
-	});
-
+	
+		
 
 //functions
 //choose a random phrase from the phrases array
@@ -70,7 +52,8 @@ let button = document.getElementsByTagName('button');
 //return new array of characters
 //Math.floor(Math.random() * 5) + 1;
 
-function getRandomPhraseAsArray (gamePhrases) {
+
+function getRandomPhraseAsArray() {
  
 	randomPhrase = gamePhrases[(Math.floor(Math.random() * gamePhrases.length))];
 	newPhrase = randomPhrase.split('');
@@ -79,13 +62,13 @@ function getRandomPhraseAsArray (gamePhrases) {
 
 
 
-
 //function
 
-const phrases = getRandomPhraseAsArray(gamePhrases);
-function addPhraseToDisplay (arr) {
-	
-	for (i = 0; i < arr.length; i ++) {
+
+function addPhraseToDisplay() {
+		
+	let phrases = getRandomPhraseAsArray();
+	for (i = 0; i < phrases.length; i ++) {
 		
 		//create li element
 		let ul = document.getElementsByTagName('ul')[0];
@@ -112,7 +95,7 @@ function addPhraseToDisplay (arr) {
 
 
 }; 
-addPhraseToDisplay(phrases);
+addPhraseToDisplay();
 
 
 
@@ -187,7 +170,7 @@ number of letters with class “letters”
 		
 		ul.innerHTML = ' ';
 
-		reset();
+		
 
 	}
 	else if (missed >= 5){
@@ -284,13 +267,31 @@ you have a missed variable to store the state of the scoreboard (initialized to 
  *****/
 
 
+function reset() {
+			
 
+			overLay.classList.replace('lose', 'start');
+			overLay.classList.replace('win', 'start');
+			let button = document.querySelectorAll('BUTTON');
 
+			for (i = 0; i < button.length; i ++){
 
+					button[i].classList.remove('chosen');
+					button[i].removeAttribute('disabled');
 
+			}
 
+				let triesList = document.getElementsByClassName('tries');
 
+				for(let i = 0; i < triesList.length; i++) {
 
+    			triesList[i].firstChild.src = 'images/liveHeart.png';
+    			missed = 0;
+    			
+	  		};
+  				
+  				
+	  		addPhraseToDisplay();
+	  		
 
-
-
+};
